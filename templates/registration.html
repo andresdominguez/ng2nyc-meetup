@@ -1,9 +1,14 @@
 <div>
   Registration
-  <form class="form">
+  <div class="form">
+    <!-- Name -->
     <div class="form-group">
-      <label for="nameInput">What is your name?</label>
-      <input class="form-control" id="nameInput" placeholder="Name">
+      <label>What is your name?</label>
+      <input #name class="form-control">
     </div>
-  </form>
+
+    <button type="submit"
+        (click)="addGuest(name.value)"
+        class="btn btn-primary">Submit</button>
+  </div>
 </div>

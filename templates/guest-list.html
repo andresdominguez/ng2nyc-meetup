@@ -1,0 +1,7 @@
+<div>
+  <button class="btn" (click)="add()">Add</button>
+  <div>{{name}}</div>
+  <span *ng-for="#guest of guests">
+    <guest-card [guest]="guest"></guest-card>
+  </span>
+</div>
