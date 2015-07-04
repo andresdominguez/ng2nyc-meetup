@@ -6,22 +6,23 @@ import {Http, httpInjectables} from "angular2/http";
   selector: 'guests-app'
 })
 @View({
-  template: `
-	  <div>
-	    <button class="btn" (click)="add()">Add</button>
-	    <div>{{name}}</div>
-	  </div>
-	`
+  templateUrl: 'templates/guest-app.html',
+  directives: [NgFor]
 })
 class GuestsApp {
   name: string;
+  guests: string[];
+  counter: number;
 
   constructor() {
     this.name = 'Carolina';
+    this.guests = [];
+    this.counter = 0;
   }
 
   add() {
     this.name = 'dsf';
+    this.guests.push('aa' + (this.counter++));
   }
 }
 
