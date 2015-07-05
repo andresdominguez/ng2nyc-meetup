@@ -5,6 +5,7 @@ import {RouteConfig, RouterOutlet, RouterLink, Router, routerInjectables} from '
 import {GuestCard} from 'components/guest-card';
 import {Registration} from 'components/registration';
 import {GuestList} from 'components/guest-list';
+import {GuestService} from 'components/guest-service';
 
 @RouteConfig([
   {path: '/', as: 'registration', component: Registration},
@@ -21,4 +22,7 @@ import {GuestList} from 'components/guest-list';
 class GuestsApp {}
 
 
-bootstrap(GuestsApp, [httpInjectables]);
+bootstrap(GuestsApp, [
+  httpInjectables,
+  GuestService
+]);
