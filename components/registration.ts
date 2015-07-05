@@ -15,7 +15,7 @@ export class Registration {
     this.guestService = guestService;
   }
 
-  addGuest(name, about) {
+  addGuest(name: string, about: string) {
     this.guestService.add(name, about);
   }
 }
