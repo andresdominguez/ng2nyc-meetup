@@ -1,7 +1,5 @@
-<div>
-  <button class="btn" (click)="add()">Add</button>
-  <div>{{name}}</div>
-  <span *ng-for="#guest of guests">
+<div class="row">
+  <span *ng-for="#guest of getList()">
     <guest-card [guest]="guest"></guest-card>
   </span>
 </div>
