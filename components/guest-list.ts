@@ -9,20 +9,19 @@ import {GuestService} from 'components/guest-service';
 })
 @View({
   templateUrl: 'templates/guest-list.html',
-  directives: [NgFor]
+  directives: [NgFor, GuestCard]
 })
 export class GuestList {
-  guests: any[];
   counter: number;
   guestService: GuestService;
 
   constructor(guestService: GuestService) {
     this.guestService = guestService;
-    this.guests = [];
-    this.counter = 0;
   }
 
   getList() {
-    return this.guestService.getList();
+    var list = this.guestService.getList();
+    this.counter = list.length;
+    return list;
   }
 }
