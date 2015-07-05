@@ -9,7 +9,6 @@ import {GuestService} from 'components/guest-service';
   templateUrl: 'templates/registration.html'
 })
 export class Registration {
-  name: string;
   guestService: GuestService;
 
   constructor(guestService: GuestService) {
