@@ -6,9 +6,7 @@ var GuestService = (function () {
         this.firebase = new Firebase(FIREBASE_URL);
         this.guestList = [];
         this.firebase.on('child_added', function (snapshot) {
-            console.log('Got stuff');
-            var guest = snapshot.val();
-            guest.key = snapshot.key();
+            var guest = _this.createGuest(snapshot);
             _this.guestList.push(guest);
             console.log(guest);
         }, function (errorObject) { return console.log('The read failed', errorObject.code); });
@@ -16,7 +14,23 @@ var GuestService = (function () {
             var key = snapshot.key();
             _this.guestList = _this.guestList.filter(function (guest) { return guest.key != key; });
         }, function (errorObject) { return console.log('The read failed', errorObject.code); });
+        this.firebase.on('child_changed', function (snapshot) {
+            var key = snapshot.key();
+            _this.guestList.some(function (guest, index) {
+                if (guest.key === key) {
+                    var updatedGuest = _this.createGuest(snapshot);
+                    // Update the guest.
+                    _this.guestList.splice(index, 1, updatedGuest);
+                    return true;
+                }
+            });
+        }, function (errorObject) { return console.log('The read failed', errorObject.code); });
     }
+    GuestService.prototype.createGuest = function (snapshot) {
+        var guest = snapshot.val();
+        guest.key = snapshot.key();
+        return guest;
+    };
     GuestService.prototype.add = function (name, about) {
         this.firebase.push({
             name: name,
@@ -25,6 +39,15 @@ var GuestService = (function () {
     };
     GuestService.prototype.getList = function () {
         return this.guestList;
+    };
+    GuestService.prototype.updateLovesAngular2 = function (guest, lovesNg2) {
+        var ref = new Firebase(FIREBASE_URL + '/' + guest.key);
+        var newValues = {
+            name: guest.name,
+            lovesNg2: lovesNg2,
+            about: guest.about
+        };
+        ref.update(newValues);
     };
     return GuestService;
 })();

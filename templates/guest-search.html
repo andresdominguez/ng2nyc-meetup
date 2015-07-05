@@ -24,11 +24,11 @@
     <div class="card grey lighten-3">
       <div class="card-content">
         <span class="card-title black-text">{{guest.name}}</span>
-        <p>Loves Angular2?</p>
       </div>
       <div class="card-action">
-        <a href="#">yes</a>
-        <a href="#">no</a>
+        <p>Loves Angular2?</p>
+        <a (click)="updateLovesNg2(guest, true)">yes</a>
+        <a (click)="updateLovesNg2(guest, false)">no</a>
       </div>
     </div>
   </div>

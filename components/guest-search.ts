@@ -40,4 +40,8 @@ export class GuestSearch {
   updateSearch(newSearch: string) {
     this.searchTerm = newSearch;
   }
+
+  updateLovesNg2(guest: Guest, lovesNg2: boolean) {
+    this.guestService.updateLovesAngular2(guest, lovesNg2);
+  }
 }
