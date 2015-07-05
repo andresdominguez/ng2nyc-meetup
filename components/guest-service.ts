@@ -2,7 +2,7 @@
 
 const FIREBASE_URL = 'https://sweltering-heat-3358.firebaseio.com';
 
-interface Guest {
+export interface Guest {
   name: string,
   about: string,
   key: string
@@ -43,7 +43,7 @@ export class GuestService {
     });
   }
 
-  getList() : Object[] {
+  getList() : Guest[] {
     return this.guestList;
   }
 }
