@@ -1,7 +1,12 @@
 <div>
   <nav>
-    <a router-link="registration">Registration</a>
-    <a router-link="list">List</a>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left">
+        <li><a router-link="registration">Registration</a></li>
+        <li><a router-link="list"><i class="material-icons">view_module</i></a></li>
+        <!--<li><a router-link="search"><i class="material-icons">search</i></a></li>-->
+      </ul>
+    </div>
   </nav>
   <div>
     <router-outlet></router-outlet>
