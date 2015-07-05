@@ -20,9 +20,14 @@ export class GuestService {
         errorObject => console.log('The read failed', errorObject.code));
   }
 
-  add(name: string) {
+  add(name: string, about: string) {
     this.firebase.push({
-      name: name
+      name: name,
+      about: about
     });
+  }
+
+  getList() : Object[] {
+    return this.guestList;
   }
 }
