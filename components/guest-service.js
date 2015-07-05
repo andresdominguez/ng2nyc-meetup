@@ -8,8 +8,13 @@ var GuestService = (function () {
         this.firebase.on('child_added', function (snapshot) {
             console.log('Got stuff');
             var guest = snapshot.val();
+            guest.key = snapshot.key();
             _this.guestList.push(guest);
             console.log(guest);
+        }, function (errorObject) { return console.log('The read failed', errorObject.code); });
+        this.firebase.on('child_removed', function (snapshot) {
+            var key = snapshot.key();
+            _this.guestList = _this.guestList.filter(function (guest) { return guest.key != key; });
         }, function (errorObject) { return console.log('The read failed', errorObject.code); });
     }
     GuestService.prototype.add = function (name, about) {
