@@ -12,7 +12,7 @@ import {GuestService} from 'components/guest-service';
   {path: '/list', as: 'list', component: GuestList}
 ])
 @Component({
-  appInjector:[routerInjectables],
+  appInjector: [routerInjectables],
   selector: 'guests-app'
 })
 @View({
@@ -20,7 +20,6 @@ import {GuestService} from 'components/guest-service';
   directives: [NgFor, GuestCard, RouterOutlet, RouterLink]
 })
 class GuestsApp {}
-
 
 bootstrap(GuestsApp, [
   httpInjectables,
