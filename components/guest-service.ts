@@ -43,7 +43,7 @@ export class GuestService {
     });
   }
 
-  getList() : Guest[] {
+  getList(): Guest[] {
     return this.guestList;
   }
 }
