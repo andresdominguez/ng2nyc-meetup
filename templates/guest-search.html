@@ -1,9 +1,6 @@
+<div class="row"></div>
 
-<div class="row">
-  <div class="col">
-    <h2>Search</h2>
-  </div>
-</div>
+<!--search-->
 <div class="row">
   <form class="col s12">
     <div class="row">
@@ -20,21 +17,26 @@
     </div>
   </form>
 </div>
+
+<!--Cards-->
 <div class="row">
-  <span *ng-for="#guest of getList()">
-    <div class="col s12 m6 l4">
-      <div class="card grey lighten-3">
-        <div class="card-content">
-          <span class="card-title black-text">{{guest.name}}</span>
-          <p>
-            Loves Angular2?
-          </p>
-        </div>
-        <div class="card-action">
-          <a href="#">yes</a>
-          <a href="#">no</a>
-        </div>
+  <div *ng-for="#guest of getList()" class="col s12 m6 l4">
+    <div class="card grey lighten-3">
+      <div class="card-content">
+        <span class="card-title black-text">{{guest.name}}</span>
+        <p>Loves Angular2?</p>
+      </div>
+      <div class="card-action">
+        <a href="#">yes</a>
+        <a href="#">no</a>
       </div>
     </div>
-  </span>
+  </div>
+</div>
+
+<!--no results-->
+<div *ng-if="noResults" class="row">
+  <div class="input-field col s12">
+    <h3>No results</h3>
+  </div>
 </div>

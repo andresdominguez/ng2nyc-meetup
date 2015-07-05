@@ -1,6 +1,6 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
 
-import {Component, NgFor, View} from 'angular2/angular2';
+import {Component, NgFor, NgIf, View} from 'angular2/angular2';
 import {Guest, GuestService} from 'components/guest-service';
 
 @Component({
@@ -8,18 +8,26 @@ import {Guest, GuestService} from 'components/guest-service';
 })
 @View({
   templateUrl: 'templates/guest-search.html',
-  directives: [NgFor]
+  directives: [NgFor, NgIf]
 })
 export class GuestSearch {
   guestService: GuestService;
   searchTerm: string;
+  noResults: boolean;
 
   constructor(guestService: GuestService) {
     this.guestService = guestService;
     this.searchTerm = '';
+    this.noResults = true;
   }
 
-  getList() {
+  getList(): Guest[] {
+    var list = this.search();
+    this.noResults = !list.length;
+    return list;
+  }
+
+  private search(): Guest[] {
     var list = this.guestService.getList();
     if (!this.searchTerm) {
       return list;
