@@ -1,14 +1,18 @@
-<div>
-  Registration
-  <div class="form">
-    <!-- Name -->
-    <div class="form-group">
-      <label>What is your name?</label>
-      <input #name class="form-control">
+<h2>Meetup registration</h2>
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input #name id="name" type="text">
+        <label for="name">Name</label>
+      </div>
     </div>
-
-    <button type="submit"
-        (click)="addGuest(name.value)"
-        class="btn btn-primary">Submit</button>
-  </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <button type="submit"
+            (click)="addGuest(name.value)"
+            class="waves-effect waves-light btn blue darken-4">Submit</button>
+      </div>
+    </div>
+  </form>
 </div>
