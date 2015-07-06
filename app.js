@@ -23,7 +23,6 @@ var GuestsApp = (function () {
     }
     GuestsApp = __decorate([
         router_1.RouteConfig([
-            //{path: '/', as: 'registration', component: Registration},
             { path: '/registration', as: 'registration', component: registration_1.Registration },
             { path: '/', as: 'search', component: guest_search_1.GuestSearch },
             { path: '/list', as: 'list', component: guest_list_1.GuestList },
@@ -45,4 +44,3 @@ angular2_1.bootstrap(GuestsApp, [
     http_1.httpInjectables,
     guest_service_1.GuestService
 ]);
-//# sourceMappingURL=app.js.map
