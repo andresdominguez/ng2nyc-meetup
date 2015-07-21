@@ -18,11 +18,7 @@ export class GuestService {
     this.guestList = [];
 
     this.firebase.on('child_added',
-        snapshot => {
-          var guest = this.createGuest(snapshot);
-          this.guestList.push(guest);
-          console.log(guest);
-        },
+        snapshot => this.guestList.push(this.createGuest(snapshot)),
         errorObject => console.log('The read failed', errorObject.code)
     );
 
@@ -53,6 +49,9 @@ export class GuestService {
   private createGuest(snapshot: FirebaseDataSnapshot): Guest {
     var guest = snapshot.val();
     guest.key = snapshot.key();
+    if(guest.lovesNg2 === undefined) {
+      guest.lovesNg2 = '???';
+    }
     return guest;
   }
 

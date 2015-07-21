@@ -1,4 +1,5 @@
 /// <reference path="../typings/angular2/angular2.d.ts" />
+
 import {Component, View} from 'angular2/angular2';
 import {GuestService} from 'components/guest-service';
 import {Router} from 'angular2/router';
@@ -22,10 +23,6 @@ export class Registration {
     event.preventDefault();
 
     this.guestService.add(name, about);
-    this.router.parent.navigate('/list').then(function(aa) {
-      debugger;
-    }, function (bb) {
-      debugger;
-    })
+    this.router.parent.navigate('/list');
   }
 }
