@@ -20,7 +20,7 @@ $ git clone https://github.com/andresdominguez/ng2nyc-meetup.git
 
 ```shell
 $ cd ng2nyc-meetup
-$ npm install -g typescript@^1.5.0-beta
+$ npm install -g typescript
 $ tsc -w
 ```
 
