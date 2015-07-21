@@ -11,42 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var guest_card_1 = require('components/guest-card');
 var guest_service_1 = require('components/guest-service');
-var GuestSearch = (function () {
-    function GuestSearch(guestService) {
+var GuestList = (function () {
+    function GuestList(guestService) {
         this.guestService = guestService;
-        this.searchTerm = '';
-        this.noResults = true;
     }
-    GuestSearch.prototype.getList = function () {
-        var list = this.search();
-        this.noResults = !list.length;
+    GuestList.prototype.getList = function () {
+        var list = this.guestService.getList();
+        this.counter = list.length;
         return list;
     };
-    GuestSearch.prototype.search = function () {
-        var list = this.guestService.getList();
-        if (!this.searchTerm) {
-            return list;
-        }
-        var regExp = new RegExp(this.searchTerm.toLocaleLowerCase());
-        return list.filter(function (guest) { return !!guest.name.toLocaleLowerCase().match(regExp); });
-    };
-    GuestSearch.prototype.updateSearch = function (newSearch) {
-        this.searchTerm = newSearch;
-    };
-    GuestSearch.prototype.updateLovesNg2 = function (guest, lovesNg2) {
-        this.guestService.updateLovesAngular2(guest, lovesNg2);
-    };
-    GuestSearch = __decorate([
+    GuestList = __decorate([
         angular2_1.Component({
-            selector: 'guest-search'
+            selector: 'guest-list'
         }),
         angular2_1.View({
-            templateUrl: 'templates/guest-search.html',
-            directives: [angular2_1.NgFor, angular2_1.NgIf]
+            templateUrl: 'templates/guest-list.html',
+            directives: [guest_card_1.GuestCard, angular2_1.NgFor]
         }), 
         __metadata('design:paramtypes', [guest_service_1.GuestService])
-    ], GuestSearch);
-    return GuestSearch;
+    ], GuestList);
+    return GuestList;
 })();
-exports.GuestSearch = GuestSearch;
+exports.GuestList = GuestList;
