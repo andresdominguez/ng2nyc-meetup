@@ -2,13 +2,14 @@
 
 import {Component, NgFor, NgIf, View} from 'angular2/angular2';
 import {Guest, GuestService} from 'components/guest-service';
+import {QuestionCard} from 'components/question-card';
 
 @Component({
   selector: 'guest-search'
 })
 @View({
   templateUrl: 'templates/guest-search.html',
-  directives: [NgFor, NgIf]
+  directives: [NgFor, NgIf, QuestionCard]
 })
 export class GuestSearch {
   guestService: GuestService;
