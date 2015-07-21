@@ -12,12 +12,10 @@ import {QuestionCard} from 'components/question-card';
   directives: [NgFor, NgIf, QuestionCard]
 })
 export class GuestSearch {
-  guestService: GuestService;
   searchTerm: string;
   noResults: boolean;
 
-  constructor(guestService: GuestService) {
-    this.guestService = guestService;
+  constructor(public guestService: GuestService) {
     this.searchTerm = '';
     this.noResults = true;
   }
