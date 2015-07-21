@@ -12,16 +12,10 @@ import {GuestService} from 'components/guest-service';
   directives: [GuestCard, NgFor]
 })
 export class GuestList {
-  counter: number;
-  guestService: GuestService;
 
-  constructor(guestService: GuestService) {
-    this.guestService = guestService;
-  }
+  constructor(public guestService: GuestService) {}
 
   getList() {
-    var list = this.guestService.getList();
-    this.counter = list.length;
-    return list;
+    return this.guestService.getList();
   }
 }
