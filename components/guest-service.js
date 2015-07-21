@@ -15,7 +15,6 @@ var GuestService = (function () {
             _this.guestList.some(function (guest, index) {
                 if (guest.key === key) {
                     var updatedGuest = _this.createGuest(snapshot);
-                    // Update the guest.
                     _this.guestList.splice(index, 1, updatedGuest);
                     return true;
                 }
@@ -51,4 +50,3 @@ var GuestService = (function () {
     return GuestService;
 })();
 exports.GuestService = GuestService;
-//# sourceMappingURL=guest-service.js.map
