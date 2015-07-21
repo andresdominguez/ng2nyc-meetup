@@ -20,6 +20,7 @@
         "./components/guest-list.ts",
         "./components/guest-search.ts",
         "./components/guest-service.ts",
+        "./components/question-card.ts",
         "./components/registration.ts",
         "./typings/angular2/angular2.d.ts",
         "./typings/es6-promise/es6-promise.d.ts",
