@@ -1,6 +1,6 @@
 # Angular2 NYC meetup
 
-Slides: TODO
+[Slides](https://docs.google.com/presentation/d/1ruBhy7DC2PmF-r9wHYPxMtkVSMOqIxcIBVR_nkCqJOo/edit?usp=sharing)
 
 # See this application running
 
